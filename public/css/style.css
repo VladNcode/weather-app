@@ -1,3 +1,7 @@
+body {
+  background: rgb(163, 162, 162);
+}
+
 h1 {
   color: green;
 }
@@ -8,5 +12,5 @@ img {
 
 p {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 20px;
 }
