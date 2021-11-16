@@ -24,34 +24,19 @@ const geocode = (adress, callback) => {
 };
 
 const forecast = (lat, lon, callback) => {
-  const url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHER_API_KEY}&query=${lat},${lon}&units=m`;
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEW_API_KEY}&q=${lat},${lon}&days=1&aqi=no&alerts=no`;
 
   request({ url, json: true }, (error, { body }) => {
-    if (error) return callback('Unable to connect to weatherstack services');
-    if (body.error) return callback(body.error.info);
+    if (error) return callback('Unable to connect to weatherapi services');
+    if (body.error) return callback(error.message);
 
-    callback(
-      undefined,
-      `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degrees out.`
+    data = {
+      msg: `${body.current.condition.text}. It is currently ${body.current.temp_c} degrees out. It feels like ${body.current.feelslike_c} degrees out.`,
+      icon: body.current.condition.icon,
+    };
 
-      // `${res.body.location.name}. ${res.body.location.region}. ${res.body.location.country}. ${res.body.current.weather_descriptions[0]}. It is currently ${res.body.current.temperature} degrees out. It feels like ${res.body.current.feelslike} degrees out.`
-    );
+    callback(undefined, data);
   });
 };
 
-const weather = adress => {
-  if (!adress) return console.log('No adress provided!');
-
-  geocode(adress, (err, { lat, lon, loc } = {}) => {
-    if (err) return console.log('Error:', err);
-    console.log('Data:', data);
-
-    forecast(lat, lon, (err, forecastData) => {
-      if (err) return console.log('Error:', err);
-      console.log(loc);
-      console.log('Data:', forecastData);
-    });
-  });
-};
-
-module.exports = weather;
+module.exports = { geocode, forecast };

@@ -27,7 +27,7 @@ footer {
 
 header {
   margin-top: -16px;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -38,9 +38,30 @@ h1 {
 header a {
   color: #888888;
   margin-right: 16px;
+  font-size: 20px;
   text-decoration: none;
 }
 
 .portrait-img {
   width: 250px;
+}
+
+.weather--loc {
+  font-size: 30px;
+}
+
+.weather--data {
+  font-size: 20px;
+}
+
+.nav--bar {
+  position: relative;
+  margin-left: 20px;
+}
+
+.nav--img {
+  position: absolute;
+  top: 5px;
+  left: -24px;
+  width: 16px;
 }

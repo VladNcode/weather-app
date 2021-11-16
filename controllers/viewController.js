@@ -1,5 +1,5 @@
 const AppError = require('../utils/appError');
-// const weather = require('../utils/weather');
+const { geocode, forecast } = require('../utils/weather');
 
 exports.getMain = (req, res, next) => {
   res.status(200).render('main', {
@@ -11,8 +11,26 @@ exports.getWeather = (req, res, next) => {
   const adress = req.query.adress;
   if (!adress) return next(new AppError('You must provide an address!', 404));
 
-  res.status(200).render('weather', {
-    title: 'Weather page',
+  geocode(adress, (err, { lat, lon, loc } = {}) => {
+    if (err)
+      return next(
+        new AppError(
+          `Error: Unable to find: "${adress}". Try another search!`,
+          404
+        )
+      );
+    // console.log('Data:', data);
+
+    forecast(lat, lon, (err, forecastData) => {
+      if (err) return next(new AppError(`Error: ${err}`, 404));
+
+      res.status(200).render('weather', {
+        title: 'Weather page',
+        icon: `http://${forecastData.icon.slice(2)}`,
+        location: loc,
+        data: forecastData.msg,
+      });
+    });
   });
 };
 

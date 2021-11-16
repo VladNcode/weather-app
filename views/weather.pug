@@ -2,5 +2,7 @@ extends base
 
 block content
   main.main
-    p This is a weather page
+    img(src=`${icon}`)
+    p.weather--loc #{location}
+    p.weather--data #{data}
     
