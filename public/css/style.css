@@ -1,4 +1,5 @@
 body {
+  background-image: url('/img/bg1.jpg');
   color: #333333;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   max-width: 650px;
