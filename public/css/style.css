@@ -1,16 +1,46 @@
 body {
-  background: rgb(163, 162, 162);
+  color: #333333;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  color: #888888;
+  border-top: 1px solid #aaa7a7;
+  margin-top: 16px;
+}
+
+.footer__copyright {
+  padding: 16px 0;
+  font-size: 20px;
+}
+
+header {
+  margin-top: -16px;
+  margin-bottom: 48px;
 }
 
 h1 {
-  color: green;
+  font-size: 64px;
+  margin-bottom: 16px;
 }
 
-img {
+header a {
+  color: #888888;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+.portrait-img {
   width: 250px;
-}
-
-p {
-  font-weight: bold;
-  font-size: 20px;
 }

@@ -1,9 +1,3 @@
-exports.getMain = (req, res, next) => {
-  res.status(200).render('main', {
-    title: 'Main page',
-  });
-};
-
 exports.getWeather = (req, res, next) => {
   res.status(200).render('weather', {
     title: 'Weather page',

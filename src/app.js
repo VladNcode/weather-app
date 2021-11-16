@@ -24,6 +24,16 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', viewRouter);
 
 // Handling errors
+
+app.get('/help/*', (req, res, next) => {
+  next(
+    new AppError(
+      `Article: "${req.originalUrl.slice(6)}" not found on this server`,
+      404
+    )
+  );
+});
+
 app.all('*', (req, res, next) => {
   // const err = new Error(`Can't find ${req.originalUrl} on this server`);
   // err.status = 'fail';
