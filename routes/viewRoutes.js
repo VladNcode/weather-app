@@ -3,8 +3,10 @@ const viewController = require('../controllers/viewController');
 
 const router = express.Router();
 
-router.get('/', viewController.getWeather);
+router.get('/', viewController.getMain);
+router.get('/weather', viewController.getWeather);
 router.get('/about', viewController.getAbout);
 router.get('/help', viewController.getHelp);
+router.get('/products', viewController.getProducts);
 
 module.exports = router;

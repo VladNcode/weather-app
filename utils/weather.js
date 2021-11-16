@@ -54,4 +54,4 @@ const weather = adress => {
   });
 };
 
-weather(process.argv[2]);
+module.exports = weather;
