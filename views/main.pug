@@ -4,7 +4,9 @@ block content
   main.main
     .weather--container
       p This is a main page
-      form.weather--form
-        input.imp(type="text", placeholder="Location")
-        button.imp-btn Search
+      .search-form
+        form.form--reset
+          input.input-search.imp#input-search(type="text")
+          label.search(for="input-search")
       .weather--data 
+  
