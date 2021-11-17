@@ -24,7 +24,7 @@ const geocode = (adress, callback) => {
 };
 
 const forecast = (lat, lon, callback) => {
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEW_API_KEY}&q=${lat},${lon}&days=1&aqi=no&alerts=no`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEW_API_KEY}&q=${lat},${lon}&days=1&aqi=no&alerts=no`;
 
   request({ url, json: true }, (error, { body }) => {
     if (error) return callback('Unable to connect to weatherapi services');

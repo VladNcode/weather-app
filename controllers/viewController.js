@@ -25,7 +25,7 @@ exports.getApi = (req, res, next) => {
 
       res.status(200).json({
         title: 'API page',
-        icon: `http://${forecastData.icon.slice(2)}`,
+        icon: `https://${forecastData.icon.slice(2)}`,
         location: loc,
         data: forecastData.msg,
       });
@@ -52,7 +52,7 @@ exports.getWeather = (req, res, next) => {
 
       res.status(200).render('weather', {
         title: 'Weather page',
-        icon: `http://${forecastData.icon.slice(2)}`,
+        icon: `https://${forecastData.icon.slice(2)}`,
         location: loc,
         data: forecastData.msg,
       });
