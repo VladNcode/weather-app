@@ -2,4 +2,8 @@ extends base
 
 block content
   main.main
-    p This is a main page
+    .weather--fe
+      p This is a main page
+      form.weather--data
+        input.imp(type="text", name="Hello", placeholder="Enter city")
+        input.imp-btn(type="submit", value="Click me")
