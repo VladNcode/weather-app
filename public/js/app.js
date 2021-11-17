@@ -5,10 +5,22 @@ const form = document.querySelector('.form--reset');
 const input = document.querySelector('.imp');
 const weatherData = document.querySelector('.weather--data');
 
-if (form)
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+let timer;
+const doneTypingInterval = 1500; // wait 1.5 seconds
 
+if (form) {
+  form.addEventListener('keyup', function () {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      doneTyping();
+    }, doneTypingInterval);
+  });
+
+  form.addEventListener('keydown', function () {
+    clearTimeout(timer);
+  });
+
+  function doneTyping() {
     input.placeholder = 'Loading...';
 
     fetch(`http://127.0.0.1:3000/api?adress=${input.value}`)
@@ -18,11 +30,13 @@ if (form)
       .then(data => {
         console.log(data);
 
-        if (data.error) {
+        if (data.status === 'fail') {
           input.placeholder = 'Loading...';
-          return (weatherData.innerHTML = `
-        <h3>${data.error.statusCode}</h3>
-        <h3>${data.message}</h3>`);
+          weatherData.innerHTML = `
+          <h3>Status: "${data.status}"</h3>
+          <h3>${data.message}</h3>`;
+          input.placeholder = '';
+          return input.blur();
         }
 
         weatherData.innerHTML = `
@@ -30,10 +44,44 @@ if (form)
         <img src="${data.icon}" alt="weather icon">
         <h3>${data.location}</h3>
         <h3>${data.data}</h3>`;
-
         input.placeholder = '';
         input.blur();
       });
 
     form.reset();
-  });
+  }
+}
+
+// if (form)
+//   form.addEventListener('submit', e => {
+//     e.preventDefault();
+
+//     input.placeholder = 'Loading...';
+
+//     fetch(`http://127.0.0.1:3000/api?adress=${input.value}`)
+//       .then(response => {
+//         return response.json();
+//       })
+//       .then(data => {
+//         console.log(data);
+
+//         if (data.status === 'fail') {
+//           input.placeholder = 'Loading...';
+//           weatherData.innerHTML = `
+//         <h3>Status: "${data.status}"</h3>
+//         <h3>${data.message}</h3>`;
+//           input.placeholder = '';
+//           return input.blur();
+//         }
+
+//         weatherData.innerHTML = `
+//       <br>
+//       <img src="${data.icon}" alt="weather icon">
+//       <h3>${data.location}</h3>
+//       <h3>${data.data}</h3>`;
+//         input.placeholder = '';
+//         input.blur();
+//       });
+
+//     form.reset();
+//   });

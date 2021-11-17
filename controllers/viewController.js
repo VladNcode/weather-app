@@ -24,7 +24,7 @@ exports.getApi = (req, res, next) => {
       if (err) return next(new AppError(`Error: ${err}`, 404));
 
       res.status(200).json({
-        title: 'Weather page',
+        title: 'API page',
         icon: `http://${forecastData.icon.slice(2)}`,
         location: loc,
         data: forecastData.msg,
