@@ -9,7 +9,13 @@ let timer;
 const doneTypingInterval = 1500; // wait 1.5 seconds
 
 if (form) {
-  form.addEventListener('keyup', function () {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+  });
+
+  form.addEventListener('keyup', function (e) {
+    if (e.key === 'Enter') return doneTyping();
+
     clearTimeout(timer);
     timer = setTimeout(() => {
       doneTyping();
