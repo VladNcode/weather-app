@@ -69,8 +69,7 @@ exports.getAbout = (req, res, next) => {
 exports.getHelp = (req, res, next) => {
   res.status(200).render('help', {
     title: 'Help Page',
-    helpMessage:
-      'If you are trying to get weather go to weather page and try to put in /weather?adress=YOUR_ADRESS',
+    helpMessage: 'Help message placeholder',
   });
 };
 

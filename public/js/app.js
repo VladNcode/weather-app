@@ -1,4 +1,4 @@
-console.log('Client side js file is loaded');
+// console.log('Client side js file is loaded');
 
 const wrapper = document.querySelector('.weather--container');
 const form = document.querySelector('.form--reset');
@@ -28,7 +28,7 @@ if (form) {
         return response.json();
       })
       .then(data => {
-        console.log(data);
+        // console.log(data);
 
         if (data.status === 'fail') {
           input.placeholder = 'Loading...';
