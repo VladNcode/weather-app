@@ -63,6 +63,9 @@ header a {
 .weather--data {
   font-size: 20px;
 }
+.weather--time {
+  font-size: 20px;
+}
 
 .nav--bar {
   position: relative;

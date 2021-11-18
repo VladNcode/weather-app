@@ -56,6 +56,7 @@ exports.getWeather = (req, res, next) => {
         icon: `https://${forecastData.icon.slice(2)}`,
         location: loc,
         data: forecastData.msg,
+        time: forecastData.time,
       });
     });
   });
