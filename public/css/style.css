@@ -172,7 +172,7 @@ header a {
   }
 
   header h1 {
-    font-size: 35px;
+    font-size: 33px;
     margin-bottom: 12px;
   }
 
@@ -196,7 +196,7 @@ header a {
   }
 
   main h3 {
-    font-size: 17px;
+    font-size: 15px;
     margin-top: -10px;
     margin-bottom: 17px;
   }
@@ -204,7 +204,7 @@ header a {
   footer {
     color: #000;
     border-top: 1px solid #aaa7a7;
-    margin-top: 16px;
+    margin-top: -50px;
   }
 
   .footer__copyright {
