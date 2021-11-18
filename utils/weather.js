@@ -32,6 +32,17 @@ const forecast = (lat, lon, callback) => {
 
     data = {
       msg: `${body.current.condition.text}. It is currently ${body.current.temp_c} degrees out. It feels like ${body.current.feelslike_c} degrees out.`,
+      time: new Date(`${body.location.localtime}`).toLocaleString('en-US', {
+        // era: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        weekday: 'short',
+        // timezone: 'UTC',
+        hour: 'numeric',
+        minute: 'numeric',
+        // second: 'numeric',
+      }),
       icon: body.current.condition.icon,
     };
 

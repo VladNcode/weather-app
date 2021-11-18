@@ -1,5 +1,3 @@
-// console.log('Client side js file is loaded');
-
 const wrapper = document.querySelector('.weather--container');
 const form = document.querySelector('.form--reset');
 const input = document.querySelector('.imp');
@@ -49,7 +47,8 @@ if (form) {
         <br>
         <img src="${data.icon}" alt="weather icon">
         <h3>${data.location}</h3>
-        <h3>${data.data}</h3>`;
+        <h3>${data.data}</h3>
+        <h3>Local time: ${data.time}</h3>`;
         input.placeholder = '';
         input.blur();
       });
