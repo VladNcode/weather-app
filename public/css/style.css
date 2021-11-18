@@ -40,7 +40,7 @@ header {
   margin-bottom: 40px;
 }
 
-h1 {
+header h1 {
   font-size: 64px;
   margin-bottom: 16px;
 }
@@ -164,4 +164,51 @@ header a {
   transition-timing-function: ease-in;
   -webkit-transition-delay: 0.2s; /* Safari */
   transition-delay: 0.2s;
+}
+
+@media (max-width: 768px) {
+  body {
+    background: url('/img/bg4.jpg') 0 0 / cover no-repeat;
+  }
+
+  header h1 {
+    font-size: 35px;
+    margin-bottom: 12px;
+  }
+
+  header a {
+    color: #000;
+    margin-right: 13px;
+    font-size: 17px;
+    text-decoration: none;
+  }
+
+  main h2 {
+    font-size: 20px;
+    margin-top: -20px;
+    margin-bottom: 16px;
+  }
+
+  main img {
+    margin-bottom: 8px;
+    margin-top: 12px;
+    margin-left: -17px;
+  }
+
+  main h3 {
+    font-size: 17px;
+    margin-top: -10px;
+    margin-bottom: 17px;
+  }
+
+  footer {
+    color: #000;
+    border-top: 1px solid #aaa7a7;
+    margin-top: 16px;
+  }
+
+  .footer__copyright {
+    padding: 4px 0;
+    font-size: 12px;
+  }
 }
