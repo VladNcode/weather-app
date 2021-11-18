@@ -48,7 +48,9 @@ if (form) {
         <img src="${data.icon}" alt="weather icon">
         <h3>${data.location}</h3>
         <h3>${data.data}</h3>
-        <h3>Local time: ${data.time}</h3>`;
+        <h3>🌞 ${data.sun}</h3>
+        <h3>🌒 ${data.moon}</h3>
+        <h3>⌚ Local time: ${data.time}</h3>`;
         input.placeholder = '';
         input.blur();
       });

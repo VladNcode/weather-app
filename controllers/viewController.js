@@ -29,6 +29,8 @@ exports.getApi = (req, res, next) => {
         location: loc,
         data: forecastData.msg,
         time: forecastData.time,
+        sun: forecastData.sun,
+        moon: forecastData.moon,
       });
     });
   });

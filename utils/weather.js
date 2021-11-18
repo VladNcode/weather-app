@@ -31,7 +31,11 @@ const forecast = (lat, lon, callback) => {
     if (body.error) return callback(error.message);
 
     data = {
-      msg: `${body.current.condition.text}. It is currently ${body.current.temp_c} degrees out. It feels like ${body.current.feelslike_c} degrees out.`,
+      msg: `${body.current.condition.text}. It is currently ${
+        body.current.temp_c
+      } degrees out. It feels like ${body.current.feelslike_c} degrees out. ${
+        body.current.temp_c < 0 ? '🥶' : ''
+      }`,
       time: new Date(body.location.localtime).toLocaleString('en-US', {
         // era: 'long',
         year: 'numeric',
@@ -44,6 +48,8 @@ const forecast = (lat, lon, callback) => {
         // second: 'numeric',
       }),
       icon: body.current.condition.icon,
+      sun: `Sunrise: ${body.forecast.forecastday[0].astro.sunrise}, Sunset: ${body.forecast.forecastday[0].astro.sunset}`,
+      moon: `Moonrise: ${body.forecast.forecastday[0].astro.moonrise}, Moonset: ${body.forecast.forecastday[0].astro.moonset}`,
     };
 
     callback(undefined, data);
